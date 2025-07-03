@@ -4,15 +4,15 @@
 
 ---
 
-## ✨ Features (Planned & In Progress)
+## ✨ Features (Planned)
 
-* ✅ Browse notes and PYQs by subject/semester
-* ✅ Search and filter by keywords
-* ✅ Add new notes manually (or from JSON for demo)
-* ✅ Responsive design for all devices
-* ✅ Dark/light mode toggle
-* ⏳ Upload UI and metadata editing (Upcoming)
-* ⏳ Tag-based filtering (Upcoming)
+* Browse notes and PYQs by subject/semester
+* Search and filter by keywords
+* Add new notes manually (or from JSON for demo)
+* Responsive design for all devices
+* Dark/light mode toggle
+* Upload UI and metadata editing
+* Tag-based filtering
 
 ---
 
