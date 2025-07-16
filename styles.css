@@ -12,11 +12,9 @@ main {
 
 header {
     /* Header container styling */
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
     border-radius: 16px;
     margin: 2rem auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
