@@ -37,7 +37,25 @@
         <div class="main-right">
             <div class="main-right-box">
                 <div class="main-right-upper-box">
-                    <p class="right-text">Search and filter by keywords<br></p>
+                    <p class="right-text">Notes Organised by Subject<br></p>
+                    <div class="main-right-search">
+                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
+
+                            <div id="search-parameters-branch" class="search-parameters-div">
+                                
+                            </div>
+                            <div id="search-parameters-semester" class="search-parameters-div">
+
+                            </div>
+                            <div id="search-parameters-subject" class="search-parameters-div">
+                                
+                            </div>
+                            
+                            <img class="search-icon" src='./assets/index/images/icons8-magnifying-glass.svg'>
+                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
+                            <input type="submit" style="display: none;">
+                        </form>
+                    </div>
                     <div class="main-right-upper-box-progress">
                         <p class="right-text small">Days Before Exams:</p>
                         <p class="right-text small">5</p>
@@ -46,6 +64,7 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="script.js" defer></script>
 </body>
 </html>
