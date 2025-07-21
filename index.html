@@ -1,66 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>NotesVault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>NotesVault Home</title>
 </head>
-
 <body>
-  <main>
     <header>
-      <div class="navbar-left">
-        <!-- Logo image -->
-        <img src="notepad.png" alt="NotesVault Logo" class="logo">
-
-        <!-- Site title and tagline -->
-        <div class="branding">
-          <h1>NotesVault</h1>
-          <p class="tagline">One place for all notes & PYQs</p>
+        <div id="header">
+            <div id="header-title-box">
+                <p id="header-title">NotesVault</p>
+            </div>
+            <div id="header-navigation">
+                <p>Overview</p>
+                <p>Student Account</p>
+                <p>About</p>
+                <p>Features</p>
+            </div>
+            <div id="header-signup-box">
+                <p>Sign Up</p>
+            </div>
         </div>
-      </div>
-
-      <nav class="navbar-center" aria-label="Main navigation">
-        <!-- Navigation links -->
-        <a href="#" class="active" aria-current="page">Overview</a>
-        <a href="#">Student Account</a>
-        <a href="#">About</a>
-        <a href="#">Features</a>
-      </nav>
-
-      <div class="navbar-right">
-        <!-- Signup button -->
-        <a href="#" class="signup-btn">Sign Up ↗</a>
-      </div>
-
     </header>
-    <section aria-labelledby="project-description">
-      <p id="project-description" class="info-text">
-        NotesVault is a beginner-friendly open-source project hosted under the Open Source Society. Its purpose is to
-        provide a collaborative platform for sharing academic notes, resources, and previous year questions (PYQs),
-        making quality study material accessible to everyone.
-      </p>
-      <ul id="project-details" class="details-list">
-        <li class="detail-item"><strong>Project Type:</strong> Open Source</li>
-        <li class="detail-item"><strong>Focus:</strong> Academic notes, resources, and PYQs</li>
-        <li class="detail-item"><strong>Purpose:</strong> Promote open-source academic sharing and collaboration</li>
-        <li class="detail-item"><strong>GitHub:</strong> <a href="https://github.com/opensource-society/notesvault"
-            target="_blank" rel="noopener noreferrer" class="github-link">github.com/opensource-society/notesvault</a>
-        </li>
-      </ul>
-      <nav aria-label="Project tags" id="project-tags" class="tags"></nav>
-      <span class="tag">#OpenSource</span>
-      <span class="tag">#BeginnerFriendly</span>
-      <span class="tag">#Academic</span>
-      <span class="tag">#Notes</span>
-      <span class="tag">#PYQs</span>
-      <span class="tag">#Resources</span>
-      </nav>
-    </section>
-  </main>
-</body>
 
+    <div id="main">
+        <div class="main-left">
+            <p class="main-text welcome">Welcome Back</p>
+            <h1 class="main-heading">Your Go-To Companion for<br>Organized Learning.</h1>
+            <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away with NotesVault.</p>
+            <div class="main-left-links">
+                <p class="links-text features-box">Browse Notes</p>
+                <p class="links-text try-box">Upload Notes</p>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="main-right-box">
+                <div class="main-right-upper-box">
+                    <div class="right-text-div">
+                        <p class="right-text">Notes Organised by</p>
+                        <p class="right-text" id="typeWriterText"></p>
+                    </div>
+                    <div class="main-right-search">
+                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
+                            
+                            <img class="search-icon" src='./assets/index/images/icons8-magnifying-glass.svg'>
+                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
+
+                            <div id="search-parameters-branch" class="search-parameters-div">
+                                
+                            </div>
+                            <div id="search-parameters-semester" class="search-parameters-div">
+
+                            </div>
+                            <div id="search-parameters-subject" class="search-parameters-div">
+                                
+                            </div>
+
+                            <input type="submit" style="display: none;">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-left-box">
+            <p class="footer-left-heading">About NotesVault</p>
+            <p class="footer-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
+            <p class="footer-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-right-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v12" />
+                        <polyline points="5 9 12 2 19 9"/>
+                    <path d="M5 20h14" />
+                </svg>
+
+                <p class="footer-right-heading">Easy Upload</p>
+                <p class="footer-right-text">Add your notes quickly and effortlessly</p>
+            </div>
+            <div class="footer-right-box">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 6h5l2 3h11v11H3z" />
+                    <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
+                </svg>
+
+
+                <p class="footer-right-heading">Sort The Chaos</p>
+                <p class="footer-right-text">Neatly arrange all your notes in one place</p>
+            </div>
+            <div class="footer-right-box">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
+                    <circle cx="16" cy="8" r="1.5" />
+                </svg>
+
+
+                <p class="footer-right-heading">Search By Tags</p>
+                <p class="footer-right-text">Find notes using subject tags</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js" defer></script>
+</body>
 </html>
