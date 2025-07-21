@@ -189,3 +189,42 @@ header h1 {
     /* Hover effect for signup button */
     background-color: #0f3333;
 }
+
+/* footer styles */
+
+footer{
+    width: 100vw;
+    height: 10px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: #000;
+    color: white;
+    
+}
+
+
+.footer-links{
+    display: flex;
+    color: white;
+    list-style: none;
+    text-align: center;
+    gap: 16px;
+}
+.footer-links a{
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: white;
+}
+.badge{
+    margin: 12px;
+}
+.footer-links li:nth-child(3){
+    height: 30px;
+    margin-top: 5px;
+}
