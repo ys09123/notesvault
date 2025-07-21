@@ -5,6 +5,84 @@ body {
   margin: 0%;
 }
 
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(22, 61, 59, 0.1);
+  border: 1px solid rgba(22, 61, 59, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: rgba(22, 61, 59, 0.2);
+  border-color: rgba(22, 61, 59, 0.3);
+  transform: scale(1.05);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  color: #163d3b;
+}
+
+.theme-toggle .sun-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.theme-toggle .moon-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Dark mode theme toggle button styles */
+[data-theme="dark"] .theme-toggle {
+  background: rgba(223, 248, 248, 0.1);
+  border-color: rgba(223, 248, 248, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(223, 248, 248, 0.2);
+  border-color: rgba(223, 248, 248, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon,
+[data-theme="dark"] .theme-toggle .moon-icon {
+  color: #dff8f8;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* USE OLD CODE FROM paste-2.txt FROM LINE 90 TO LINE 154 */
+
+/* Navigation Menu Styles with updated order for theme toggle */
+#header #header-navigation {
+  width: 30vw;
+  justify-content: space-between;
+}
+
+
 #header {
   display: flex;
   flex-direction: row;
@@ -91,6 +169,9 @@ body {
 #header #header-signup-box {
   margin-right: 5vw;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 #header #header-signup-box p {
@@ -640,6 +721,254 @@ body {
   .footer-right .footer-right-box {
     padding: 15px;
     margin: 8px 0;
+  }
+}
+
+
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background-color: #0d0d0d;
+  color: #f1f1f1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] #header {
+  background-color: #121212;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+[data-theme="dark"] #header #header-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .hamburger-line {
+  background: #ffffff;
+}
+
+[data-theme="dark"] #header #header-navigation {
+  background-color: #121212;
+}
+
+[data-theme="dark"] #header #header-navigation p {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] #header #header-navigation p:hover {
+  color: #ffffff;
+}
+
+[data-theme="dark"] #header #header-signup-box p {
+  background-color: #2c5a57;
+  color: #b8e6e1;
+}
+
+[data-theme="dark"] .main-text {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .main-heading {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .welcome {
+  background-color: #3d2f1a;
+  color: #d4a853;
+}
+
+[data-theme="dark"] .links-text {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+[data-theme="dark"] .links-text:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .features-box {
+  background-color: #4a3420;
+  color: #d4a853;
+}
+
+[data-theme="dark"] .try-box {
+  border-color: #444;
+}
+
+[data-theme="dark"] .main-right-box {
+  background-color: #1a2e1a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .main-right-upper-box {
+  background-color: #0f1f0f;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .right-text {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .main-right-search-form-input {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+[data-theme="dark"] .main-right-search-form-input::placeholder {
+  color: #888;
+}
+
+[data-theme="dark"] .search-icon {
+  color: #888;
+}
+
+[data-theme="dark"] .search-parameters-select {
+  background-color: rgba(60, 80, 60, 0.8);
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+[data-theme="dark"] .search-parameters-option {
+  background-color: rgba(60, 80, 60, 0.9);
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .footer-left-heading,
+[data-theme="dark"] .footer-right-heading {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .footer-left-text,
+[data-theme="dark"] .footer-right-text {
+  color: #cccccc;
+}
+
+[data-theme="dark"] .footer-left-link {
+  color: #8a8ddb;
+}
+
+[data-theme="dark"] .footer-right .footer-right-box:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .footer-right svg {
+  stroke: #e0e0e0;
+}
+
+[data-theme="dark"] .modern-footer {
+  background: linear-gradient(135deg, #0a1f1d 0%, #0d2420 100%);
+}
+
+[data-theme="dark"] .footer-logo {
+  background: linear-gradient(135deg, #e0e0e0, #f7b86e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .footer-description {
+  color: #a0c4c1;
+}
+
+[data-theme="dark"] .social-link {
+  background: rgba(223, 248, 248, 0.05);
+  border-color: rgba(223, 248, 248, 0.1);
+}
+
+[data-theme="dark"] .social-link:hover {
+  background: rgba(223, 248, 248, 0.1);
+  border-color: rgba(223, 248, 248, 0.2);
+}
+
+[data-theme="dark"] .footer-links h4,
+[data-theme="dark"] .footer-community h4 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .footer-links a {
+  color: #a0c4c1;
+}
+
+[data-theme="dark"] .footer-links a:hover {
+  color: #dff8f8;
+}
+
+[data-theme="dark"] .oss-badge {
+  background: rgba(223, 248, 248, 0.05);
+  border-color: rgba(223, 248, 248, 0.1);
+}
+
+[data-theme="dark"] .oss-badge:hover {
+  background: rgba(223, 248, 248, 0.1);
+  border-color: rgba(223, 248, 248, 0.2);
+}
+
+[data-theme="dark"] .community-text {
+  color: #a0c4c1;
+}
+
+[data-theme="dark"] .footer-divider {
+  background: linear-gradient(90deg, transparent, rgba(223, 248, 248, 0.1), transparent);
+}
+
+[data-theme="dark"] .copyright,
+[data-theme="dark"] .footer-bottom-links a {
+  color: #a0c4c1;
+}
+
+[data-theme="dark"] .footer-bottom-links a:hover {
+  color: #dff8f8;
+}
+
+/* USE OLD CODE FROM paste-2.txt FROM LINE 651 (RESPONSIVE BREAKPOINTS) TO THE END, BUT ADD THESE RESPONSIVE STYLES FOR THEME TOGGLE */
+
+/* Responsive styles for theme toggle */
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+  
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+  
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+  }
+  
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    width: 14px;
+    height: 14px;
   }
 }
 
