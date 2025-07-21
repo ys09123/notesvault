@@ -1,6 +1,6 @@
 $body-bg: #f4f7f2;
 $header-font: "Poppins", sans-serif;
-$header-title-signup-margin: 2vw;
+$header-title-signup-margin: 5vw;
 $header-navigation-signup-fontsize: calc(9px + 0.4vw);
 $main-right-box-border: 15px;
 
@@ -150,8 +150,13 @@ body {
     margin: 20px;
     background-color: #f5f9f3;
     border-radius: $main-right-box-border;
-    .right-text {
+    
+    .right-text-div {
         padding: 15px;
+    }
+
+    .right-text {
+        display: inline-flex;
         font-family: $header-font;
         font-weight: 500;
         font-style: normal;
@@ -164,6 +169,7 @@ body {
 
         .small {
             font-weight: 300;
+            padding: 15px;
         }
     }
 }
@@ -204,7 +210,6 @@ body {
     margin: 4px 0px;
 
     .search-parameters-select {
-        appearance: none;
         display: flex;
         border: none; 
         background-color: #a5c9a08f;
@@ -227,5 +232,77 @@ body {
         padding: 10px;
         background-color: #a5c9a0d0;
         color: #2E2E2E;
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: $header-title-signup-margin;
+
+    .footer-left-box {
+        max-width: 20vw;
+    }
+
+    .footer-left-heading {
+        font-family: $header-font;
+        font-weight: 500;
+        font-style: normal;
+        font-size: calc(12px + 0.4vw);
+        letter-spacing: +0.1px;
+    }
+
+    .footer-left-text {
+        font-family: $header-font;
+        font-weight: 200;
+        font-style: italic;
+        font-style: normal;
+        font-size: $header-navigation-signup-fontsize;
+    }
+
+    .footer-left-link {
+        font-family: $header-font;
+        font-weight: 500;
+        font-style: bold;
+        font-size: $header-navigation-signup-fontsize;
+        color: #6b6eb9;
+        cursor: pointer;
+    }
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+
+    .footer-right-box {
+        width: 16vw;
+        margin: 0px 2vw;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 1vw;
+    }
+
+    .footer-right-box:hover {
+        background-color: #e6ebe5;
+    }
+
+    .footer-right-heading {
+        font-family: $header-font;
+        font-weight: 500;
+        font-style: normal;
+        font-size: calc(14px + 0.4vw);
+        letter-spacing: +0.1px;
+    }
+
+    .footer-right-text {
+        font-family: $header-font;
+        font-weight: 300;
+        font-style: italic;
+        font-style: normal;
+        font-size: $header-navigation-signup-fontsize;
     }
 }

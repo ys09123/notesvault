@@ -131,5 +131,41 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             
         });
-})
+});
 
+
+const words = ["Branch", "Semester", "Subject"];
+  let currentWord = 0;
+  let i = 0;
+  let isDeleting = false;
+  let speed = 100;
+
+  function typeWriter() {
+    const element = document.getElementById("typeWriterText");
+    const word = words[currentWord];
+
+    if (isDeleting) {
+      element.innerHTML = word.substring(0, i - 1);
+      i--;
+    } else {
+      element.innerHTML = word.substring(0, i + 1);
+      i++;
+    }
+
+    if (!isDeleting && i === word.length) {
+      isDeleting = true;
+      speed = 50;
+      setTimeout(typeWriter, 1000); // Wait before deleting
+      return;
+    }
+
+    if (isDeleting && i === 0) {
+      isDeleting = false;
+      currentWord = (currentWord + 1) % words.length; // Next word
+      speed = 100;
+    }
+
+    setTimeout(typeWriter, speed);
+  }
+
+  window.onload = typeWriter;
