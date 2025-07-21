@@ -1,32 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // setup search parameters
     const search_branch = document.getElementById("search-parameters-branch");
     const search_semester = document.getElementById("search-parameters-semester");
     const search_subject = document.getElementById("search-parameters-subject");
 
-    if (search_branch) {
-        console.log("selected search form");
-    }
-
+    // to be filled with data after fetch!
     Branches = [];
 
+    // fetch parameters.json file
     fetch("data/search_parameters/parameters.json")
         .then(res => res.json())
         .then(data => {
+            
+            // store all data inside branchList
             const branchList = data.branches;
             branchList.forEach(branch => {
+                
+                // store branch name in Branches array
                 if(branch.name){
-                    console.log(branch.name);
                     Branches.push(branch.name);
                 }
             });
 
-            console.log(Branches);
-
+            // create select element for branch and append it
             const chooseBranch = document.createElement("select");
             chooseBranch.name = "selectBranch";
             chooseBranch.id = "selectBranch";
             chooseBranch.className = "search-parameters-select";
             search_branch.appendChild(chooseBranch);
+
+            // create default option in select and append it
             const chooseBranchDefault = document.createElement("option");
             chooseBranchDefault.disabled = true;
             chooseBranchDefault.selected = true;
@@ -35,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const searchBranch = document.getElementById("selectBranch");
             searchBranch.appendChild(chooseBranchDefault);
 
+            // fill options from Branches array
             Branches.forEach(branch => {
                 const branchOption = document.createElement("option");
                 branchOption.value = branch;
@@ -48,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Semesters = [];
             semesterList = [];
 
+            // Add semesters if change detected in branches!
             branchOptions.addEventListener("change", () => {
                 branchList.forEach(branch => {
                     if(branch.name == branchOptions.value) {
@@ -64,11 +70,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 search_semester.innerHTML = '';
 
+                // add option to select semester in page and append it
                 const chooseSemester = document.createElement("select");
                 chooseSemester.name = "selectSemester";
                 chooseSemester.id = "selectSemester";
                 chooseSemester.className = "search-parameters-select";
                 search_semester.appendChild(chooseSemester);
+
+                // default semester option
                 const chooseSemesterDefault = document.createElement("option");
                 chooseSemesterDefault.disabled = true;
                 chooseSemesterDefault.selected = true;
@@ -77,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const searchSemester = document.getElementById("selectSemester");
                 searchSemester.appendChild(chooseSemesterDefault);
 
-
+                // add all semesters
                 semesterList.forEach(semester => {
                     const semesterOption = document.createElement("option");
                     semesterOption.value = semester.semester;
@@ -86,11 +95,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     searchSemester.appendChild(semesterOption);
                 });
 
+                // add subjects if semester is selected
                 searchSemester.addEventListener("change", addSubjects());
             });
             Subjects = [];
             subjectList = [];
 
+            // add subjects option
             function addSubjects() {
                 search_subject.innerHTML = "";
                 const selectSemester = document.getElementById("selectSemester");
@@ -106,11 +117,15 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
                         }
                     });
+
+                    // add option to select subject and append it
                     const chooseSubject = document.createElement("select");
                     chooseSubject.name = "selectSubject";
                     chooseSubject.id = "selectSubject";
                     chooseSubject.className = "search-parameters-select";
                     search_subject.appendChild(chooseSubject);
+
+                    // add default subject
                     const chooseSubjectDefault = document.createElement("option");
                     chooseSubjectDefault.disabled = true;
                     chooseSubjectDefault.selected = true;
@@ -119,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const searchSubject = document.getElementById("selectSubject");
                     searchSubject.appendChild(chooseSubjectDefault);
 
+                    // add options for all subjects.
                     Subjects.forEach(subject => {
                         console.log(subject);
                         const subjectOption = document.createElement("option");
@@ -133,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-
+// typewriter effect in homepage!
 const words = ["Branch", "Semester", "Subject"];
   let currentWord = 0;
   let i = 0;
