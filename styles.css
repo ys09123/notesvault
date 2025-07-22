@@ -840,6 +840,15 @@ body {
   background-color: #121212;
 }
 
+[data-theme="dark"] .nav-menu a {
+  color: white;
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
 [data-theme="dark"] #header #header-navigation p {
   color: #e0e0e0;
 }
@@ -914,14 +923,14 @@ body {
   color: #888;
 }
 
-[data-theme="dark"] .search-parameters-select {
-  background-color: rgba(60, 80, 60, 0.8);
+[data-theme="dark"] .search-parameters-div .search-parameters-select:focus {
+  background-color: #0f1f0f;
   color: #e0e0e0;
   border: 1px solid #444;
 }
 
 [data-theme="dark"] .search-parameters-option {
-  background-color: rgba(60, 80, 60, 0.9);
+  background-color: #0f1f0f;
   color: #e0e0e0;
 }
 
