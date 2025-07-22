@@ -278,4 +278,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+
+   document.querySelectorAll(".upload-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.location.href = "upload.html";
+    });
+  });
+
 });
