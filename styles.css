@@ -1234,30 +1234,35 @@ body {
 }
 
 .oss-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .oss-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(223, 248, 248, 0.1);
-    border: 1px solid rgba(223, 248, 248, 0.2);
-    border-radius: 8px;
-    color: #dff8f8;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+ 
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 20px; /* Pill shape */
+  
+  /* CHANGE THIS: Adjust padding to change the badge's overall size */
+  padding: 8px 14px;
+  
+  transition: background-color 0.2s ease;
 }
 
-.oss-badge:hover {
-    background: rgba(223, 248, 248, 0.2);
-    border-color: rgba(223, 248, 248, 0.4);
-    transform: translateY(-1px);
+
+.oss-badge img {
+  width: 25px;
+  height: 25px;
 }
 
+.oss-badge span {
+  font-size: 14px;
+   color: #dff8f8;
+  
+}
 .community-text {
     color: #b8d4d1;
     font-size: 14px;
