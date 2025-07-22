@@ -1077,3 +1077,78 @@ body {
         font-size: 12px;
     }
 }
+
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* ===== Upload Page Navbar Styling ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #f5f5f5;
+  padding: 16px 0;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
