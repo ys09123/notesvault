@@ -1431,6 +1431,7 @@ body {
 }
 
 
+
 .container {
   max-width: 600px;
   margin: 50px auto;
@@ -1502,5 +1503,15 @@ nav a {
 nav a:hover {
   background-color: #4CAF50;
   color: white;
+}
+
+.links-text {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.links-text:hover {
+  font-weight: 400;
+  text-decoration: underline;
 }
 
