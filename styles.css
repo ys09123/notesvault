@@ -142,6 +142,11 @@ body {
   margin-left: 5vw;
 }
 
+#header-title-box {
+  display: flex;
+  align-items: center;
+}
+
 /* Title style */
 #header #header-title-box #header-title {
   font-weight: 500;
