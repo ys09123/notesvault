@@ -1341,6 +1341,7 @@ body {
     }
 }
 
+
 /* Small mobile styles (480px and down) */
 @media screen and (max-width: 480px) {
     .modern-footer {
@@ -1426,4 +1427,5 @@ body {
     .footer-bottom-links a {
         font-size: 12px;
     }
+
 }
