@@ -50,6 +50,16 @@
       outline: none;
       overflow-y: auto;
       font-size: 1rem;
+      position: relative;
+    }
+    .note-box.empty::before{
+      content: "Start writing your notes here...";
+      color: #888;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      pointer-events: none;
+      font-size: 1rem;
     }
 
     .download-btn {
@@ -75,9 +85,9 @@
 
   <div class="editor-wrapper">
     <div class="editor-container">
-      <div class="note-box" contenteditable="true" id="noteArea" spellcheck="true">
-        Start writing your notes here...
+      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
       </div>
+     
       <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
     </div>
   </div>
@@ -94,6 +104,18 @@
       doc.text(content, 10, 20, { maxWidth: 180 });
       doc.save("MyNotes.pdf");
     }
+    const noteArea=document.getElementById("noteArea");
+    function togglePlaceholder(){
+      if(noteArea.innerText.trim()===""){
+        noteArea.classList.add("empty");
+      }
+      else{
+        noteArea.classList.remove("empty");
+      }
+    }
+    noteArea.addEventListener("input",togglePlaceholder);
+    noteArea.addEventListener("blur",togglePlaceholder);
+    togglePlaceholder()
   </script>
 </body>
 </html>
