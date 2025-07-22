@@ -6,7 +6,6 @@ body {
   padding:0;
 }
 
-
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -99,7 +98,8 @@ body {
 }
 
 /* Ensure parent scroll works */
-html, body {
+html,
+body {
   height: 100%;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
@@ -117,7 +117,6 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: none !important;
@@ -147,7 +146,6 @@ html, body {
   font-style: normal;
   font-size: calc(12px+1vw);
 }
-
 
 /* Hamburger Menu Styles */
 .hamburger-menu {
@@ -185,7 +183,7 @@ html, body {
 
 /* Navigation Menu Styles */
 #header #header-navigation {
-  width: 30vw;
+  width: 40vw;
   justify-content: space-between;
 }
 
@@ -198,14 +196,13 @@ html, body {
   cursor: pointer;
 }
 
-.nav-menu a{
+.nav-menu a {
   text-decoration: none;
   color: #000000;
   font-style: normal;
   font-family: "Poppins", sans-serif;
-  
 }
-.nav-menu a:hover{
+.nav-menu a:hover {
   text-decoration: underline;
   color: green;
 }
@@ -263,7 +260,6 @@ html, body {
   font-size: calc(9px + 0.4vw);
 }
 
-
 .main-heading {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -273,6 +269,12 @@ html, body {
   font-variation-settings: "wdth" 100;
   font-size: calc(20px + 1.5vw);
   line-height: 1.6;
+}
+
+.main-text {
+  margin: 10px 0px;
+  /* padding: 20px; */
+  /* background-color: red; */
 }
 
 .main-left-links {
@@ -363,6 +365,11 @@ html, body {
   margin: 20px 20px;
 }
 
+.search-form-input-container{
+  display: flex;
+  align-items: center;
+}
+
 .main-right-search .main-right-search-form-input {
   display: inline-flex;
   font-family: "Poppins", sans-serif;
@@ -446,18 +453,17 @@ html, body {
   cursor: pointer;
 }
 
-
 .About-right {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  flex: 2 1 500px; 
+  flex: 2 1 500px;
 }
 
 .About-right-box {
   flex: 1 1 200px;
-  padding: 1.5rem; 
+  padding: 1.5rem;
   background-color: rgba(165, 201, 160, 0.5607843137);
   border-radius: 20px;
   cursor: pointer;
@@ -508,7 +514,6 @@ html, body {
 .About-right-box:nth-child(3) {
   animation-delay: 0.8s;
 }
-
 
 /* RESPONSIVE BREAKPOINTS */
 
@@ -597,18 +602,18 @@ html, body {
     align-items: center;
     gap: 15px;
   }
-  
+
   #header #header-title-box {
     margin-left: 5vw;
     order: 1;
   }
-  
+
   #header #header-signup-box {
     order: 2;
     margin-right: 0;
     margin-left: auto;
   }
-  
+
   .hamburger-menu {
     display: flex;
     order: 3;
@@ -627,7 +632,7 @@ html, body {
     flex-direction: column;
     width: 100%;
     padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     order: 4;
   }
@@ -807,8 +812,6 @@ html, body {
   }
 }
 
-
-
 /* Dark Mode Styles */
 [data-theme="dark"] {
   color-scheme: dark;
@@ -835,6 +838,15 @@ html, body {
 
 [data-theme="dark"] #header #header-navigation {
   background-color: #121212;
+}
+
+[data-theme="dark"] .nav-menu a {
+  color: white;
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+  text-decoration: underline;
+  color: green;
 }
 
 [data-theme="dark"] #header #header-navigation p {
@@ -1142,7 +1154,6 @@ html, body {
     display: flex;
     gap: 16px;
 }
-
 .social-link {
     display: inline-flex;
     align-items: center;
@@ -1156,14 +1167,18 @@ html, body {
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    box-shadow: 0 0 0 transparent; /* base state */
 }
 
 .social-link:hover {
     background: rgba(223, 248, 248, 0.2);
     border-color: rgba(223, 248, 248, 0.4);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 61, 59, 0.3);
+    box-shadow:
+        0 4px 12px rgba(223, 248, 248, 0.3),
+        0 0 10px rgba(223, 248, 248, 0.4); /* glow effect */
 }
+
 
 /* Footer Links Section */
 .footer-links h4 {
@@ -1237,30 +1252,35 @@ html, body {
 }
 
 .oss-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .oss-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(223, 248, 248, 0.1);
-    border: 1px solid rgba(223, 248, 248, 0.2);
-    border-radius: 8px;
-    color: #dff8f8;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+ 
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 20px; /* Pill shape */
+  
+  /* CHANGE THIS: Adjust padding to change the badge's overall size */
+  padding: 8px 14px;
+  
+  transition: background-color 0.2s ease;
 }
 
-.oss-badge:hover {
-    background: rgba(223, 248, 248, 0.2);
-    border-color: rgba(223, 248, 248, 0.4);
-    transform: translateY(-1px);
+
+.oss-badge img {
+  width: 25px;
+  height: 25px;
 }
 
+.oss-badge span {
+  font-size: 14px;
+   color: #dff8f8;
+  
+}
 .community-text {
     color: #b8d4d1;
     font-size: 14px;
@@ -1516,8 +1536,6 @@ html, body {
 }
 
 
-
-
 /* ===== Upload Page Navbar Styling ===== */
 nav {
   display: flex;
@@ -1574,5 +1592,16 @@ nav a:hover {
     padding: 15px 5px;
   }
 
+}
+
+/* Hover and Shadow Effects */
+button, a, img, .card, .hover-effect {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15), 0 1.5px 4px rgba(0,0,0,0.10);
+  transform: scale(1.04);
+  z-index: 2;
 }
 

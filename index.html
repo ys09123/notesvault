@@ -26,29 +26,29 @@
 
             <!-- Navigation Menu -->
             <div id="header-navigation" class="nav-menu">
-                <a href="../pages/overview.html">Overview</a>
+                <a href="./pages/overview.html">Overview</a>
                 <a href="/">Student Account</a>
                 <a href="about.html">About</a>
+                <a href="jotpad.html">Jotpad</a>
                 <a href="/">Features</a>
             </div>
 
-
-            <div id="header-signup-box">
-                <p>Sign Up</p>
-                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-            </div>
+                <div id="header-signup-box">
+                    <a href="/notesvault/pages/signup.html"><p>Sign Up</p></a>
+                    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path
+                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                            </path>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
         </div>
     </header>
 
@@ -82,21 +82,19 @@
                 </div>
                 <div class="main-right-search">
                     <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
-                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        <div class="search-form-input-container">
+                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input class="main-right-search-form-input" type="text" name="query" autocomplete="off"
-                            placeholder="Search">
-
-                        <div id="search-parameters-branch" class="search-parameters-div">
-
+                            </svg>
+                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off"
+                                placeholder="Search">
                         </div>
+
+                        <div id="search-parameters-branch" class="search-parameters-div"></div>
                         <div id="search-parameters-semester" class="search-parameters-div"></div>
-                        <div id="search-parameters-subject" class="search-parameters-div">
-
-                        </div>
+                        <div id="search-parameters-subject" class="search-parameters-div"></div>
 
                         <input type="submit" style="display: none;">
                     </form>
@@ -115,19 +113,20 @@
                 Learn More →</p>
         </div>
 
+
         <div class="About-right">
-            <div class="About-right-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
-                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <div class="About-right-box">
+            <a href="upload.html" class="footer-right-box" style="text-decoration: none; color: inherit;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3v12" />
                     <polyline points="5 9 12 2 19 9" />
                     <path d="M5 20h14" />
                 </svg>
-
                 <p class="About-right-heading upload-btn">Easy Upload</p>
                 <p class="About-right-text">Add your notes quickly and effortlessly</p>
-            </div>
-            <div class="About-right-box">
+          </a>
+          </div>
+
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
                     stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -184,7 +183,7 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="./pages/overview.html">Overview</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#browse">Browse Notes</a></li>
                         <li><a href="upload.html">Upload Notes</a></li>
@@ -193,29 +192,30 @@
                 </div>
 
                 <div class="footer-community">
-                    <h4>Community</h4>
-                    <div class="community-badges">
-                        <a href="https://gssoc.girlscript.tech/" class="gssoc-badge" target="_blank"
-                            rel="noopener noreferrer">
-                            <img
-                                src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" />
-                        </a>
-                        <a href="https://github.com/opensource-society" class="oss-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <div class="oss-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm0 2.19l8.392 4.85v9.92L12 21.81l-8.392-4.85V7.04L12 2.19z" />
-                                </svg>
-                                <span>Open Source Society</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="community-text">
-                        Join our vibrant community of learners and contributors
-                    </p>
-                </div>
+
+    <h4>Community</h4>
+    <div class="community-badges">
+        
+        <a href="https://gssoc.girlscript.tech/" class="gssoc-badge" target="_blank" rel="noopener noreferrer">
+           <div class="oss-badge">
+            <img src="https://substack-post-media.s3.amazonaws.com/public/images/e0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" alt="GSSOC Badge" />
+            <span>Girlscript Summer Of Code</span>
+
             </div>
+        </a>
+
+        <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
+            <div class="oss-badge">
+                    <img src="./assets/index/images/oss.png" alt="oss">
+                
+                <span>Open Source Society</span>
+            </div>
+        </a>
+    </div>
+    <p class="community-text">
+        Join our vibrant community of learners and contributors
+    </p>
+</div>
 
             <div class="footer-bottom">
                 <div class="footer-divider"></div>
@@ -234,9 +234,9 @@
         </div>
     </footer>
 
-
-
+    
     <script src="script.js" defer></script>
 </body>
 
 </html>
+
