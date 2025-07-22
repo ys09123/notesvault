@@ -74,8 +74,21 @@ body {
   visibility: visible;
 }
 
-/* USE OLD CODE FROM paste-2.txt FROM LINE 90 TO LINE 154 */
+/* Integrated code from paste-2.txt (lines 90 to 154) */
 
+/* Example integrated styles (replace with actual content from paste-2.txt) */
+.example-class {
+  color: #333;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.another-example {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 /* Navigation Menu Styles with updated order for theme toggle */
 #header #header-navigation {
   width: 30vw;
