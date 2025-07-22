@@ -1637,4 +1637,32 @@ nav a:hover {
   }
 
 }
+.bookmark-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  background-color: #f7b86e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
+.bookmark-btn.bookmarked {
+  background-color: #f3a847;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.rating .star {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.rating .star.filled {
+  color: #f7b86e;
+}
