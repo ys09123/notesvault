@@ -1638,3 +1638,14 @@ nav a:hover {
 
 }
 
+/* Hover and Shadow Effects */
+button, a, img, .card, .hover-effect {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15), 0 1.5px 4px rgba(0,0,0,0.10);
+  transform: scale(1.04);
+  z-index: 2;
+}
+
