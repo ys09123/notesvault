@@ -1,328 +1,192 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // setup search parameters
-    const search_branch = document.getElementById("search-parameters-branch");
-    const search_semester = document.getElementById("search-parameters-semester");
-    const search_subject = document.getElementById("search-parameters-subject");
+    // --- Data Storage ---
+    // This will hold the entire data structure from parameters.json
+    let allData = {};
 
-    // to be filled with data after fetch!
-    Branches = [];
+    // --- Element References ---
+    const searchBranchContainer = document.getElementById("search-parameters-branch");
+    const searchSemesterContainer = document.getElementById("search-parameters-semester");
+    const searchSubjectContainer = document.getElementById("search-parameters-subject");
 
-    // fetch parameters.json file
+    // --- Helper Function to create dropdowns (to avoid repeating code) ---
+    function createDropdown(container, id, defaultText, options) {
+        // Clear the container first
+        container.innerHTML = '';
+
+        // Create the <select> element
+        const select = document.createElement("select");
+        select.id = id;
+        select.className = "search-parameters-select";
+
+        // Create the disabled default option
+        const defaultOption = document.createElement("option");
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.innerHTML = defaultText;
+        select.appendChild(defaultOption);
+
+        // Create options from the provided array
+        options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt;
+            option.innerHTML = opt;
+            select.appendChild(option);
+        });
+
+        // Add the new dropdown to the page
+        container.appendChild(select);
+        return select; // Return the created select element
+    }
+
+    // --- Functions to Update Dropdowns ---
+
+    // Function to update the Semester dropdown based on the selected Branch
+    function updateSemesters() {
+        const selectedBranch = document.getElementById("selectBranch").value;
+        let semesterNames = [];
+
+        // Clear the subsequent dropdowns
+        searchSemesterContainer.innerHTML = '';
+        searchSubjectContainer.innerHTML = '';
+
+        // Find the selected branch in our data and get its semesters
+        const branchData = allData.branches.find(b => b.name === selectedBranch);
+        if (branchData && branchData.semesters) {
+            semesterNames = branchData.semesters.map(sem => sem.semester);
+        }
+
+        // Create the new semester dropdown
+        const semesterSelect = createDropdown(searchSemesterContainer, "selectSemester", "Select Semester", semesterNames);
+        
+        // IMPORTANT: Add an event listener to the NEW semester dropdown
+        semesterSelect.addEventListener("change", updateSubjects);
+    }
+
+    // Function to update the Subject dropdown based on the selected Semester
+    function updateSubjects() {
+        const selectedBranch = document.getElementById("selectBranch").value;
+        const selectedSemester = document.getElementById("selectSemester").value;
+        let subjectNames = [];
+        
+        // Clear the subject dropdown
+        searchSubjectContainer.innerHTML = '';
+
+        // Find the selected branch and semester to get the subjects
+        const branchData = allData.branches.find(b => b.name === selectedBranch);
+        if (branchData && branchData.semesters) {
+            const semesterData = branchData.semesters.find(sem => sem.semester == selectedSemester);
+            if (semesterData && semesterData.subjects) {
+                // Extracts the name of the subject
+                subjectNames = semesterData.subjects.map(sub => Object.values(sub)[0]);
+            }
+        }
+        
+        // Create the new subject dropdown
+        createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjectNames);
+    }
+
+    // --- Main Logic: Fetch data and initialize the first dropdown ---
     fetch("data/search_parameters/parameters.json")
         .then(res => res.json())
         .then(data => {
+            allData = data; // Store all data globally within this script's scope
+            const branchNames = allData.branches.map(b => b.name);
+            const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branchNames);
             
-            // store all data inside branchList
-            const branchList = data.branches;
-            branchList.forEach(branch => {
-                
-                // store branch name in Branches array
-                if(branch.name){
-                    Branches.push(branch.name);
-                }
-            });
+            // Add the event listener to the main branch dropdown
+            branchSelect.addEventListener("change", updateSemesters);
+        })
+        .catch(error => console.error("Error fetching parameters:", error));
 
-            // create select element for branch and append it
-            const chooseBranch = document.createElement("select");
-            chooseBranch.name = "selectBranch";
-            chooseBranch.id = "selectBranch";
-            chooseBranch.className = "search-parameters-select";
-            search_branch.appendChild(chooseBranch);
 
-            // create default option in select and append it
-            const chooseBranchDefault = document.createElement("option");
-            chooseBranchDefault.disabled = true;
-            chooseBranchDefault.selected = true;
-            chooseBranchDefault.innerHTML = "Select Branch";
-            chooseBranchDefault.className = "search-parameters-option";
-            const searchBranch = document.getElementById("selectBranch");
-            searchBranch.appendChild(chooseBranchDefault);
+    // --- Typewriter Effect ---
+    // This is the single, corrected typewriter function
+    const words = ["Branch", "Semester", "Subject", "Year"];
+    let currentWordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-            // fill options from Branches array
-            Branches.forEach(branch => {
-                const branchOption = document.createElement("option");
-                branchOption.value = branch;
-                branchOption.innerHTML = branch;
-                branchOption.className = "search-parameters-option";
-                searchBranch.appendChild(branchOption);
-            });
-            
+    function typeWriterEffect() {
+        const currentWord = words[currentWordIndex];
+        const typewriterElement = document.getElementById('typeWriterText');
 
-            const branchOptions = document.getElementById("selectBranch");
-            Semesters = [];
-            semesterList = [];
+        if (!typewriterElement) return; // Stop if the element doesn't exist
 
-            // Add semesters if change detected in branches!
-            branchOptions.addEventListener("change", () => {
-                branchList.forEach(branch => {
-                    if(branch.name == branchOptions.value) {
-                        if(branch.semesters) {
-                            semesterList = branch.semesters;
-                            Semesters = [];
-                            semesterList.forEach(semester =>{
-                                Semesters.push(semester.semester);
-                            });
-                            console.log(Semesters);
-                        }
-                    }
-                });
+        if (isDeleting) {
+            typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
 
-                search_semester.innerHTML = '';
+        let typeSpeed = isDeleting ? 75 : 150; // Slower, more natural speeds
 
-                // add option to select semester in page and append it
-                const chooseSemester = document.createElement("select");
-                chooseSemester.name = "selectSemester";
-                chooseSemester.id = "selectSemester";
-                chooseSemester.className = "search-parameters-select";
-                search_semester.appendChild(chooseSemester);
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; // Pause after typing a word
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            typeSpeed = 500; // Pause before starting a new word
+        }
 
-                // default semester option
-                const chooseSemesterDefault = document.createElement("option");
-                chooseSemesterDefault.disabled = true;
-                chooseSemesterDefault.selected = true;
-                chooseSemesterDefault.innerHTML = "Select Semester";
-                chooseSemesterDefault.className = "search-parameters-option";
-                const searchSemester = document.getElementById("selectSemester");
-                searchSemester.appendChild(chooseSemesterDefault);
+        setTimeout(typeWriterEffect, typeSpeed);
+    }
+    
+    // Start the typewriter
+    typeWriterEffect();
 
-                // add all semesters
-                semesterList.forEach(semester => {
-                    const semesterOption = document.createElement("option");
-                    semesterOption.value = semester.semester;
-                    semesterOption.innerHTML = semester.semester;
-                    semesterOption.className = "search-parameters-option";
-                    searchSemester.appendChild(semesterOption);
-                });
+    
+    // --- Mobile Menu Toggle Functionality ---
+    const nav = document.getElementById('header-navigation');
+    const hamburger = document.getElementById('hamburgerMenu');
 
-                // add subjects if semester is selected
-                searchSemester.addEventListener("change", addSubjects());
-            });
-            Subjects = [];
-            subjectList = [];
-
-            // add subjects option
-            function addSubjects() {
-                search_subject.innerHTML = "";
-                const selectSemester = document.getElementById("selectSemester");
-                selectSemester.addEventListener("change", () => {
-                    semesterList.forEach(semester => {
-                        if(semester){
-                            if(semester.semester == selectSemester.value){
-                                subjectList = semester.subjects;
-                                Subjects = [];
-                                subjectList.forEach(subject => {
-                                    Subjects.push(Object.values(subject));
-                                });
-                            }
-                        }
-                    });
-
-                    // add option to select subject and append it
-                    const chooseSubject = document.createElement("select");
-                    chooseSubject.name = "selectSubject";
-                    chooseSubject.id = "selectSubject";
-                    chooseSubject.className = "search-parameters-select";
-                    search_subject.appendChild(chooseSubject);
-
-                    // add default subject
-                    const chooseSubjectDefault = document.createElement("option");
-                    chooseSubjectDefault.disabled = true;
-                    chooseSubjectDefault.selected = true;
-                    chooseSubjectDefault.innerHTML = "Select Subject";
-                    chooseSubjectDefault.className = "search-parameters-option";
-                    const searchSubject = document.getElementById("selectSubject");
-                    searchSubject.appendChild(chooseSubjectDefault);
-
-                    // add options for all subjects.
-                    Subjects.forEach(subject => {
-                        console.log(subject);
-                        const subjectOption = document.createElement("option");
-                        subjectOption.value = subject;
-                        subjectOption.innerHTML = subject;
-                        subjectOption.className = "search-parameters-option";
-                        searchSubject.appendChild(subjectOption);
-                    });
-                });
-            }
-            
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+             nav.classList.toggle('show');
+             hamburger.classList.toggle('active');
         });
-});
-
-// typewriter effect in homepage!
-const words = ["Branch", "Semester", "Subject"];
-  let currentWord = 0;
-  let i = 0;
-  let isDeleting = false;
-  let speed = 100;
-
-  function typeWriter() {
-    const element = document.getElementById("typeWriterText");
-    const word = words[currentWord];
-
-    if (isDeleting) {
-      element.innerHTML = word.substring(0, i - 1);
-      i--;
-    } else {
-      element.innerHTML = word.substring(0, i + 1);
-      i++;
     }
 
-    if (!isDeleting && i === word.length) {
-      isDeleting = true;
-      speed = 50;
-      setTimeout(typeWriter, 1000); // Wait before deleting
-      return;
-    }
-
-    if (isDeleting && i === 0) {
-      isDeleting = false;
-      currentWord = (currentWord + 1) % words.length; // Next word
-      speed = 100;
-    }
-
-    setTimeout(typeWriter, speed);
-  }
-
-  window.onload = typeWriter;
-
-
-  // Mobile menu toggle functionality
-function toggleMobileMenu() {
-    const nav = document.getElementById('header-navigation');
-    const hamburger = document.getElementById('hamburgerMenu');
-    
-    nav.classList.toggle('show');
-    hamburger.classList.toggle('active');
-}
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const nav = document.getElementById('header-navigation');
-    const hamburger = document.getElementById('hamburgerMenu');
-    
-    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-        nav.classList.remove('show');
-        hamburger.classList.remove('active');
-    }
-});
-
-// Close mobile menu when clicking on navigation links
-document.querySelectorAll('#header-navigation p').forEach(link => {
-    link.addEventListener('click', function() {
-        const nav = document.getElementById('header-navigation');
-        const hamburger = document.getElementById('hamburgerMenu');
-        
-        nav.classList.remove('show');
-        hamburger.classList.remove('active');
-    });
-});
-
-// Typewriter effect for the dynamic text
-const texts = ['Subject', 'Semester', 'Branch', 'Year'];
-let textIndex = 0;
-let charIndex = 0;
-// let isDeleting = false;
-
-function typeWriter() {
-    const currentText = texts[textIndex];
-    const typewriterElement = document.getElementById('typeWriterText');
-    
-    if (isDeleting) {
-        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-    }
-    
-    let typeSpeed = isDeleting ? 50 : 100;
-    
-    if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500;
-    }
-    
-    setTimeout(typeWriter, typeSpeed);
-}
-
-// Start typewriter effect when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    typeWriter();
-});
-
-// Handle window resize to ensure proper layout
-window.addEventListener('resize', function() {
-    const nav = document.getElementById('header-navigation');
-    const hamburger = document.getElementById('hamburgerMenu');
-    
-    if (window.innerWidth > 600) {
-        nav.classList.remove('show');
-        hamburger.classList.remove('active');
-    }
-});
-
-// Add smooth scrolling for better UX
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    document.addEventListener('click', function(event) {
+        if (nav && hamburger && !nav.contains(event.target) && !hamburger.contains(event.target)) {
+            nav.classList.remove('show');
+            hamburger.classList.remove('active');
         }
     });
+
+    // --- Theme Toggle ---
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    const themeToggleButton = document.getElementById('themeToggle');
+    if(themeToggleButton) {
+        themeToggleButton.addEventListener('click', toggleTheme);
+    }
+
+    // Initialize theme on page load
+    (function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    })();
+    
+  document.querySelectorAll(".upload-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    window.location.href = "upload.html";
+  });
 });
-
-// Dark Mode Toggle Functionality
-function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Add a subtle animation effect
-    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-    setTimeout(() => {
-        document.body.style.transition = '';
-    }, 300);
-}
-
-// Initialize theme on page load
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    
-    document.documentElement.setAttribute('data-theme', defaultTheme);
-}
-
-// Listen for system theme changes
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) {
-            const newTheme = e.matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-        }
-    });
-}
-
-// Initialize theme as early as possible
-initTheme();
 
 
 // Update the DOMContentLoaded event listener to include theme initialization
-document.addEventListener('DOMContentLoaded', function() {
-    typeWriter();
-});
+
 
 
 const branchFilter = document.getElementById("branch-filter");
@@ -386,3 +250,6 @@ function displayNotes(notes) {
     displayNotes(filtered);
   });
 });
+
+});
+

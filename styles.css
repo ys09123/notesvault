@@ -2,7 +2,9 @@
 
 body {
   background-color: #f4f7f2;
-  margin: 0%;
+  margin: 0;
+  padding: 0;
+  padding-top: 64px;
 }
 
 
@@ -90,40 +92,63 @@ body {
   padding: 20px;
 }
 /* Navigation Menu Styles with updated order for theme toggle */
-#header #header-navigation {
-  width: 30vw;
-  justify-content: space-between;
+/* General reset if needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Ensure parent scroll works */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
 
+/* Sticky header */
 #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  position: relative;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none !important;
+  border-bottom: none !important;
+  margin: 0;
 }
 
+/* Flex box for left/right header items */
 #header div {
   display: flex;
 }
 
+/* Ensures text/icons inside header are centered vertically */
 #header div p {
   display: flex;
   align-items: center;
 }
 
+/* Left section spacing */
 #header #header-title-box {
   margin-left: 5vw;
 }
 
+/* Title style */
 #header #header-title-box #header-title {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: calc(12px + 1vw);
+  font-size: calc(12px+1vw);
 }
+
 
 /* Hamburger Menu Styles */
 .hamburger-menu {
@@ -174,6 +199,18 @@ body {
   cursor: pointer;
 }
 
+.nav-menu a{
+  text-decoration: none;
+  color: #000000;
+  font-style: normal;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  
+}
+.nav-menu a:hover{
+  text-decoration: underline;
+  color: green;
+}
 #header #header-navigation p:hover {
   font-weight: 400;
   text-decoration: underline;
@@ -368,75 +405,76 @@ body {
   color: #2E2E2E;
 }
 
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100%;
-  margin: 5vw;
-}
 
-.footer .footer-left-box {
-  max-width: 20vw;
-}
-
-.footer .footer-left-heading {
+.About {
   font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 2rem; 
+ 
+  margin: 5vw;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.About-left-box {
+  flex: 1 1 300px; 
+  min-width: 280px;
+}
+
+.About-left-heading {
   font-weight: 500;
-  font-style: normal;
-  font-size: calc(12px + 0.4vw);
+  font-size: 50px;
+  align-items: center;
   letter-spacing: 0.1px;
 }
 
-.footer .footer-left-text {
-  font-family: "Poppins", sans-serif;
+.About-left-text {
   font-weight: 200;
-  font-style: italic;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
+  font-size: calc(15px + 0.4vw);
 }
 
-.footer .footer-left-link {
-  font-family: "Poppins", sans-serif;
+.About-left-link {
   font-weight: 500;
-  font-style: bold;
-  font-size: calc(9px + 0.4vw);
+  font-size: calc(12px + 0.4vw);
   color: #6b6eb9;
   cursor: pointer;
 }
 
-.footer-right {
+
+.About-right {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 2 1 500px; 
 }
 
-.footer-right .footer-right-box {
-  width: 16vw;
-  margin: 0px 2vw;
-  cursor: pointer;
+.About-right-box {
+  flex: 1 1 200px;
+  padding: 1.5rem; 
+  background-color: rgba(165, 201, 160, 0.5607843137);
   border-radius: 20px;
-  padding: 1vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-right .footer-right-box:hover {
+.About-right-box:hover {
   background-color: #e6ebe5;
+  transform: translateY(-5px); /* Adds a nice "lift" effect on hover */
 }
 
-.footer-right .footer-right-heading {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+.About-right-heading {
+  font-weight: 500px;
   font-size: calc(14px + 0.4vw);
   letter-spacing: 0.1px;
 }
 
-.footer-right .footer-right-text {
-  font-family: "Poppins", sans-serif;
+.About-right-text {
   font-weight: 300;
-  font-style: italic;
-  font-style: normal;
+  font-style: italic; /* CORRECTED: Kept the italic style and removed the conflicting one */
   font-size: calc(9px + 0.4vw);
 }
 
@@ -656,21 +694,21 @@ body {
     width: calc(90vw - 110px);
   }
 
-  .footer {
+  .About {
     margin: 4vw 2vw;
   }
 
-  .footer .footer-left-heading,
-  .footer-right .footer-right-heading {
+  .About .About-left-heading,
+  .About-right .About-right-heading {
     font-size: calc(12px + 0.8vw);
   }
 
-  .footer .footer-left-text,
-  .footer-right .footer-right-text {
+  .About .About-left-text,
+  .About-right .About-right-text {
     font-size: calc(10px + 0.6vw);
   }
 
-  .footer-right .footer-right-box {
+  .About-right .About-right-box {
     padding: 20px;
     margin: 10px 0;
   }
@@ -852,26 +890,26 @@ body {
   color: #e0e0e0;
 }
 
-[data-theme="dark"] .footer-left-heading,
-[data-theme="dark"] .footer-right-heading {
+[data-theme="dark"] .About-left-heading,
+[data-theme="dark"] .About-right-heading {
   color: #ffffff;
 }
 
-[data-theme="dark"] .footer-left-text,
-[data-theme="dark"] .footer-right-text {
+[data-theme="dark"] .About-left-text,
+[data-theme="dark"] .About-right-text {
   color: #cccccc;
 }
 
-[data-theme="dark"] .footer-left-link {
+[data-theme="dark"] .About-left-link {
   color: #8a8ddb;
 }
 
-[data-theme="dark"] .footer-right .footer-right-box:hover {
+[data-theme="dark"] .About-right .About-right-box:hover {
   background-color: #2a2a2a;
   color: #ffffff;
 }
 
-[data-theme="dark"] .footer-right svg {
+[data-theme="dark"] .About-right svg {
   stroke: #e0e0e0;
 }
 
@@ -1513,5 +1551,28 @@ nav a:hover {
 .links-text:hover {
   font-weight: 400;
   text-decoration: underline;
+}
+
+
+.footer{
+  background-color: #1e1e1e;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.footer-content p { 
+  margin: 5px 0;
+
+}
+
+@media (max-width: 600px){
+  .footer {
+    font-size: 12px;
+    padding: 15px 5px;
+  }
+
 }
 
