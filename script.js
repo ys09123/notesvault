@@ -321,6 +321,5 @@ initTheme();
 
 // Update the DOMContentLoaded event listener to include theme initialization
 document.addEventListener('DOMContentLoaded', function() {
-    initTheme();
     typeWriter();
 });
