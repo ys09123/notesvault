@@ -199,6 +199,18 @@ html, body {
   cursor: pointer;
 }
 
+.nav-menu a{
+  text-decoration: none;
+  color: #000000;
+  font-style: normal;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  
+}
+.nav-menu a:hover{
+  text-decoration: underline;
+  color: green;
+}
 #header #header-navigation p:hover {
   font-weight: 400;
   text-decoration: underline;
