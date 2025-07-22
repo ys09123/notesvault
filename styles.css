@@ -940,9 +940,17 @@ body {
   color: #dff8f8;
 }
 
-/* USE OLD CODE FROM paste-2.txt FROM LINE 651 (RESPONSIVE BREAKPOINTS) TO THE END, BUT ADD THESE RESPONSIVE STYLES FOR THEME TOGGLE */
+/* Responsive breakpoints integrated from paste-2.txt */
 
-/* Responsive styles for theme toggle */
+/* General responsive styles */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    padding: 10px;
+  }
+}
 @media screen and (max-width: 600px) {
   .theme-toggle {
     width: 35px;
