@@ -34,38 +34,64 @@ body {
   font-size: calc(12px + 1vw);
 }
 
-/* Hamburger Menu Styles */
+/* Hamburger lines */
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* Hamburger button */
 .hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
 }
 
-.hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: #163d3b;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+/* Wrapper to group button and sidebar */
+.hamburger-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
 }
 
-.hamburger-menu.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+/* Sidebar - hidden by default */
+.hover-sidebar {
+  position: absolute;
+  top: 0;
+  left: -250px; /* Hidden left */
+  width: 180px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left 0.3s ease;
+  border-radius: 20px;
+  /* border: 2px black; */
 }
 
-.hamburger-menu.active .hamburger-line:nth-child(2) {
-  opacity: 0;
+.hover-sidebar a{
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+}
+.hover-sidebar a:hover{
+  color: green;
+  text-decoration: underline;
 }
 
-.hamburger-menu.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+/* On hover, slide the sidebar in */
+.hamburger-wrapper:hover .hover-sidebar {
+  left: 50px; /* Adjust to position beside hamburger */
 }
 
 /* Navigation Menu Styles */
@@ -260,6 +286,23 @@ body {
   justify-content: center;
   margin: 4px 0px;
 }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+
 
 .search-parameters-div .search-parameters-select {
   display: flex;
@@ -331,6 +374,9 @@ body {
 }
 
 .footer-right .footer-right-box {
+  text-decoration: none;
+  color: black;
+  display: block;
   width: 16vw;
   margin: 0px 2vw;
   cursor: pointer;
@@ -357,6 +403,8 @@ body {
   font-style: normal;
   font-size: calc(9px + 0.4vw);
 }
+
+
 
 /* RESPONSIVE BREAKPOINTS */
 
@@ -435,7 +483,17 @@ body {
     min-width: 250px;
     text-align: center;
   }
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+
 }
+
 
 /* Mobile styles (600px and down) */
 @media screen and (max-width: 600px) {
