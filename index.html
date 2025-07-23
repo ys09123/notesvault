@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div id="top"></div>
     <header>
         <div id="header">
             <div id="header-title-box">
@@ -27,11 +28,10 @@
 
 
             <!-- Navigation Menu -->
-            <div id="header-navigation" class="nav-menu">
+            <div id="header-navigation" class="nav-menu" id="navbar">
                 <a href="./pages/overview.html">Overview</a>
                 <a href="studentAccount.html">Student Account</a>
                 <a href="about.html">About</a>
-                <a href="jotpad.html">Jotpad</a>
                 <a href="/">Features</a>
             </div>
 
@@ -236,9 +236,16 @@
         </div>
     </footer>
 
-    <a href="#main" class="to_top" id="scroll_top_btn"> Scroll to Top↑
-        <!-- <img class="scroll_back" src="image/scroll_top.png"> -->
-    </a>
+    <a href="#top" class="to_top" id="scroll_top_btn" aria-label="Scroll to top">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ab8335" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</a>
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
     <script src="script.js" defer></script>
 </body>
 
