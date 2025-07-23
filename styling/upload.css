@@ -1,7 +1,9 @@
 .upload-container {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 190px;
   padding: 2rem;
+  
   background: white;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;

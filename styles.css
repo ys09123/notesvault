@@ -279,10 +279,27 @@ body {
     color: #dff8f8;
   }
 
+
+.main-left-links .links-text {
+  display: inline-flex;
+  margin-right: 1vw;
+  padding: 0px 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(9px + 0.4vw);
+  min-height: calc(50px - 0.4vw);
+  align-items: center;
+  border-radius: 30px;
+  cursor: pointer;
+  
+}
+
   [data-theme="dark"] .theme-toggle .sun-icon {
     opacity: 0;
     visibility: hidden;
   }
+
 
   [data-theme="dark"] .theme-toggle .moon-icon {
     opacity: 1;
