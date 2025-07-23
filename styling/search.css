@@ -11,10 +11,10 @@ body {
 main.container {
     flex: 1;
     padding: 20px 5vw;
+    padding-top: 90px;
 }
 
 header {
-    padding-top: 50px;
     background-color: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     position: sticky;
@@ -96,9 +96,18 @@ select {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
+.note-card:hover{
+    border: 2px darkolivegreen solid;
+}
 
 .note-card h3 {
     margin-top: 0;
+    color:darkgreen
+}
+.note-card h3:hover{
+    text-decoration: underline;
+    transform: scale(#121212);
+    color: orange;
 }
 
 .modern-footer {
