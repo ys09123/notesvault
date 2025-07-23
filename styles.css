@@ -1664,7 +1664,7 @@
 
   }
 
-fix-animation-navlinks
+
   @media (max-width: 600px) {
     .footer {
       font-size: 12px;
@@ -1742,7 +1742,7 @@ fix-animation-navlinks
 button,img, .card, .hover-effect {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-main
+main{
 
   button:hover,
   img:hover,
@@ -1757,7 +1757,6 @@ main
     bottom: 10px;
     right: 40px;
     position: fixed;
-fix-animation-navlinks
 
   }
 
