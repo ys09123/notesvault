@@ -850,6 +850,38 @@ body {
   }
 
 
+  /* added Simple Fade-In Animation on Page Load */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  .About-right-box {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  /* Optional: stagger the boxes */
+  .About-right-box:nth-child(1) {
+    animation-delay: 0.8s;
+  }
+
+  .About-right-box:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .About-right-box:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+}
+
   /* RESPONSIVE BREAKPOINTS */
 
   /* Tablet styles (768px and down) */
@@ -2101,35 +2133,23 @@ main{
   transform: translateY(-4px) scale(1.03);
 }
 
-.feature-card svg {
-  margin-bottom: 18px;
-}
-
-.feature-card .About-right-heading {
-  margin-bottom: 8px;
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-.feature-card .About-right-text {
-  font-size: 1rem;
-  font-style: italic;
-  color: #222;
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .feature-cards-container {
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
+  .feature-card svg {
+    margin-bottom: 18px;
   }
-  .feature-card {
-    max-width: 90vw;
-    width: 100%;
+
+  .feature-card .About-right-heading {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
   }
-}
+
+  .feature-card .About-right-text {
+    font-size: 1rem;
+    font-style: italic;
+    color: #222;
+    text-align: center;
+  }
 
 
 }
@@ -2239,4 +2259,17 @@ main{
   cursor: pointer;
   transition: color 0.2s;
 }
+
+
+  @media (max-width: 900px) {
+    .feature-cards-container {
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+    .feature-card {
+      max-width: 90vw;
+      width: 100%;
+    }
+  }
 
