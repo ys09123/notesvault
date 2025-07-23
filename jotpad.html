@@ -18,8 +18,12 @@
       <div class="note-box" contenteditable="true" id="noteArea" data-placeholder="Start writing your notes here...">
 
       </div>
-      <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
-    </div>
+      <div class="button-wrapper">
+  <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+  <button class="delete-btn" onclick="deleteAll()">Delete All</button>
+</div>
+
+     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -39,6 +43,13 @@
   note.addEventListener("input", () => {
     localStorage.setItem("noteContent", note.innerHTML);
   });
+  function deleteAll() {
+    if (confirm("Are you sure you want to delete all notes?")) {
+      note.innerHTML = "";
+      localStorage.removeItem("noteContent");
+    }
+  }
   </script>
+
 </body>
 </html>
