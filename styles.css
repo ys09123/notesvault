@@ -688,6 +688,7 @@ body {
 
   .search-form-input-container {
     display: flex;
+  }
 
   .hamburger-menu {
     display: flex;
@@ -698,7 +699,7 @@ body {
   }
 
 
-}
+
 
 
 /* Mobile styles (600px and down) */
@@ -2130,4 +2131,112 @@ main{
   }
 }
 
+
+}
+
+
+
+/* Note Styling */
+/* Container for all notes */
+#notesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Each note card */
+.note-card {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  /* border: 1px solid black; */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.note-card .mark{
+  display: flex;align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+.note-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #090909;
+}
+.note-card h3:hover {
+  margin-top: 0;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+/* Paragraph styling */
+.note-card p {
+  margin: 0.4rem 0;
+  color: #555;
+}
+
+/* Download link */
+.note-card a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.note-card a:hover {
+  background-color: #3ca041;
+}
+
+/* Bookmark button */
+.bookmark-btn {
+  margin-top: 1rem;
+  background: none;
+  border: 2px solid #ffa000;
+  color: #ffa000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.bookmark-btn:hover {
+  background-color: #ffe082;
+  color: #000;
+}
+
+.bookmark-btn.bookmarked {
+  background-color: #ffd54f;
+  color: #000;
+  border-color: #ffca28;
+}
+
+/* Star rating */
+.rating {
+  margin-top: 1rem;
+}
+
+.rating .star {
+  font-size: 1.3rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
 
