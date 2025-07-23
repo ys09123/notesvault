@@ -7,6 +7,45 @@
   <link rel="stylesheet" href="../styling/studentAccount.css" />
 </head>
 <body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div id="header">
+      <div class="hamburger-wrapper">
+        <button class="hamburger-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <div class="hover-sidebar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/overview.html">Overview</a></li>
+            <li><a href="../pages/features.html">Features</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="header-title-box">
+        <p id="header-title">NotesVault</p>
+      </div>
+
+      <div id="header-navigation" class="nav-menu">
+        <a href="../pages/overview.html">Overview</a>
+        <a href="../pages/studentAccount.html">Student Account</a>
+        <a href="../pages/about.html">About</a>
+        <a href="../pages/features.html">Features</a>
+      </div>
+
+      <div id="header-signup-box">
+        <a href="../pages/signup.html"><p>Sign Up</p></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
   <div class="container">
     <h1>📚 Student Dashboard - NotesVault</h1>
 
@@ -21,6 +60,7 @@
 
     <section class="notes-section">
       <h2>💾 Saved Notes</h2>
+
       <div class="note-card">
         <h3>Lecture Notes</h3>
         <ul>
@@ -41,8 +81,9 @@
     </section>
 
     <div class="back-btn">
-      <button onclick="location.href='index.html'">⬅ Back to Home</button>
+      <button onclick="location.href='../index.html'">⬅ Back to Home</button>
     </div>
   </div>
+
 </body>
 </html>
