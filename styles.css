@@ -1605,3 +1605,14 @@ button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
   z-index: 2;
 }
 
+.to_top{
+    bottom:10px;
+    right: 40px;
+    position: fixed;
+    
+}
+#scroll_top_btn {
+  color: #ab8335;
+  font-weight: bolder;
+  font-size: larger;
+}
