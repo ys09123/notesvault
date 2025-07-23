@@ -3,8 +3,7 @@
 body {
   background-color: #f4f7f2;
   margin: 0;
-  padding: 0;
-  padding-top: 64px;
+  padding:0;
 }
 
 .theme-toggle {
@@ -117,8 +116,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  background: rgba(255, 255, 255, 0.92);
+  padding: 15px 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: none !important;
@@ -140,6 +138,11 @@ body {
 /* Left section spacing */
 #header #header-title-box {
   margin-left: 5vw;
+}
+
+#header-title-box {
+  display: flex;
+  align-items: center;
 }
 
 /* Title style */
@@ -202,7 +205,6 @@ body {
   text-decoration: none;
   color: #000000;
   font-style: normal;
-  margin-top: 20px;
   font-family: "Poppins", sans-serif;
 }
 .nav-menu a:hover {
@@ -241,6 +243,7 @@ body {
   display: flex;
   /* flex-direction: row; */
   margin: 5vw;
+  padding-block: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -280,6 +283,7 @@ body {
 }
 
 .main-left-links {
+  padding: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -322,6 +326,7 @@ body {
 
 .main-right-upper-box {
   margin: 20px;
+  padding: 20px;
   background-color: #f5f9f3;
   border-radius: 15px;
 }
@@ -862,6 +867,16 @@ body {
   color: #b8e6e1;
 }
 
+[data-theme="dark"] .nav-menu a{
+  text-decoration: none;
+  color: #dff8f8;
+  font-style: normal;
+  font-family: "Poppins", sans-serif;
+}
+[data-theme="dark"] .nav-menu a:hover{
+  text-decoration: underline;
+  color: #4CAF50;
+}
 [data-theme="dark"] .main-text {
   color: #e0e0e0;
 }
@@ -923,15 +938,20 @@ body {
   color: #888;
 }
 
-[data-theme="dark"] .search-parameters-div .search-parameters-select:focus {
-  background-color: #0f1f0f;
-  color: #e0e0e0;
-  border: 1px solid #444;
+[data-theme="dark"] .search-parameters-select {
+  background-color: #2a3b2a;
+  color: #f7b86e;
+  border: 1px solid #f7b86e;
+}
+[data-theme="dark"] .search-parameters-select:focus {
+  background-color: #1a2e1a;
+  outline: none;
+  border: 1px solid #f7b86e;
 }
 
 [data-theme="dark"] .search-parameters-option {
-  background-color: #0f1f0f;
-  color: #e0e0e0;
+  background-color: #2a3b2a;
+  color: #f7b86e;
 }
 
 [data-theme="dark"] .About-left-heading,
@@ -1028,6 +1048,7 @@ body {
 @media screen and (max-width: 768px) {
   body {
     font-size: 14px;
+    padding-top: 8vh;
   }
   .container {
     padding: 10px;
@@ -1170,7 +1191,6 @@ body {
     font-weight: 500;
     margin-bottom: 24px;
     color: #dff8f8;
-    margin-left: 28px !important; 
 }
 
 .footer-links ul {
@@ -1521,71 +1541,13 @@ body {
 }
 
 
-
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form label {
-  font-weight: bold;
-  display: block;
-  margin-top: 15px;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  resize: vertical;
-}
-
-form textarea {
-  height: 120px;
-}
-
-form button {
-  display: inline-block;
-  background-color: #163d3b;
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  margin-top: 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #1f5a56;
-}
-
-
 /* ===== Upload Page Navbar Styling ===== */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  background-color: #f5f5f5;
-  padding: 16px 0;
-  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -1595,14 +1557,13 @@ nav a {
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 20px 0px 12px 12px;
   transition: all 0.3s ease;
   border-radius: 4px;
 }
 
 nav a:hover {
-  background-color: #4CAF50;
-  color: white;
+  color: #4CAF50;
 }
 
 .links-text {
@@ -1652,6 +1613,7 @@ nav a:hover {
   background-color: #f3a847;
 }
 
+
 .rating {
   margin-top: 10px;
 }
@@ -1666,3 +1628,27 @@ nav a:hover {
 .rating .star.filled {
   color: #f7b86e;
 }
+
+/* Hover and Shadow Effects */
+button, a, img, .card, .hover-effect {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15), 0 1.5px 4px rgba(0,0,0,0.10);
+  transform: scale(1.04);
+  z-index: 2;
+}
+
+.to_top{
+    bottom:10px;
+    right: 40px;
+    position: fixed;
+    
+}
+#scroll_top_btn {
+  color: #ab8335;
+  font-weight: bolder;
+  font-size: larger;
+}
+

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/index/images/favicon.ico" />
     <title>NotesVault Home</title>
     <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +14,8 @@
     <header>
         <div id="header">
             <div id="header-title-box">
-                <p id="header-title">NotesVault</p>
+                <img src="./assets/index/images/Icon.jpg" alt="App Icon" style="height:32px;width:32px;margin-right:10px;vertical-align:middle;" />
+                <p id="header-title" style="display:inline;vertical-align:middle;">NotesVault</p>
             </div>
 
             <!-- Hamburger Menu Button -->
@@ -27,14 +29,14 @@
             <!-- Navigation Menu -->
             <div id="header-navigation" class="nav-menu">
                 <a href="./pages/overview.html">Overview</a>
-                <a href="/">Student Account</a>
+                <a href="studentAccount.html">Student Account</a>
                 <a href="about.html">About</a>
                 <a href="jotpad.html">Jotpad</a>
                 <a href="/">Features</a>
             </div>
 
                 <div id="header-signup-box">
-                    <a href="/notesvault/pages/signup.html"><p>Sign Up</p></a>
+                    <a href="./pages/signup.html"><p>Sign Up</p></a>
                     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
                         <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -60,8 +62,7 @@
                 with NotesVault.</p>
             <!-- <div class="main-left-links">
                 <p class="links-text features-box">Browse Notes</p>
-
-                
+       
             </div> -->
             <div class="main-left-links">
                 <a href="search.html" class="links-text features-box" style="text-decoration: none; color: inherit;">
@@ -71,10 +72,6 @@
                     Upload Notes
                 </a>
             </div>
-
-
-
-
         </div>
 
     
@@ -239,7 +236,9 @@
         </div>
     </footer>
 
-    
+    <a href="#main" class="to_top" id="scroll_top_btn"> Scroll to Top↑
+        <!-- <img class="scroll_back" src="image/scroll_top.png"> -->
+    </a>
     <script src="script.js" defer></script>
 </body>
 

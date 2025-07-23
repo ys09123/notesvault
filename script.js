@@ -203,13 +203,14 @@ const subjectMap = {
 
 let notesData = [];
 
-  fetch("data/notes.json")
-    .then(res => res.json())
-    .then(data => {
-      notesData = data;
-      updateSubjects("");
-      displayNotes(notesData);
-    });
+fetch("data/notes.json")
+  .then(res => res.json())
+  .then(data => {
+    notesData = data;
+    updateSubjects("");
+    displayNotes(notesData);
+    runQuerySearch();
+  });
 
 function updateSubjects(branch) {
   subjectFilter.innerHTML = '<option value="">All Subjects</option>';
@@ -310,4 +311,56 @@ function updateSubjects(branch) {
 });
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("query")?.trim().toLowerCase();
+
+  if (query) {
+    const notes = document.querySelectorAll(".note-card");
+    let matchFound = false;
+
+    notes.forEach((note) => {
+      const content = note.textContent.toLowerCase();
+      const show = content.includes(query);
+      note.style.display = show ? "block" : "none";
+      if (show) matchFound = true;
+    });
+
+    if (!matchFound) {
+      const msg = document.createElement("p");
+      msg.textContent = `No notes found for "${query}"`;
+      msg.style.color = "red";
+      msg.style.fontWeight = "bold";
+      msg.style.marginTop = "20px";
+      document.getElementById("notes-container").appendChild(msg);
+    }
+  }
+});
+
+function runQuerySearch() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("query")?.trim().toLowerCase();
+
+  if (query) {
+    const notes = document.querySelectorAll(".note-card");
+    let matchFound = false;
+
+    notes.forEach((note) => {
+      const content = note.textContent.toLowerCase();
+      const show = content.includes(query);
+      note.style.display = show ? "block" : "none";
+      if (show) matchFound = true;
+    });
+
+    if (!matchFound) {
+      const msg = document.createElement("p");
+      msg.textContent = `No notes found for "${query}"`;
+      msg.style.color = "red";
+      msg.style.fontWeight = "bold";
+      msg.style.marginTop = "20px";
+      document.getElementById("notes-container").appendChild(msg);
+    }
+  }
+}
 
