@@ -1672,8 +1672,4 @@ button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
     position: fixed;
     
 }
-#scroll_top_btn {
-  color: #ab8335;
-  font-weight: bolder;
-  font-size: larger;
-}
+
