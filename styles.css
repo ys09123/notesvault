@@ -458,9 +458,7 @@ body {
     font-style: normal;
     font-family: "Poppins", sans-serif;
   }
-  .dark-theme .nav-menu a {
-  color: #ffffff;
-  }
+  
 
   .nav-menu a::before,
   .nav-menu a::after {
