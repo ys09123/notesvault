@@ -36,7 +36,6 @@ header {
     font-weight: 600;
     font-size: 1.6rem;
     color: #163d3b;
-    
 }
 
 .nav-menu {
@@ -96,7 +95,6 @@ select {
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    
 }
 .note-card:hover{
     border: 2px darkolivegreen solid;
