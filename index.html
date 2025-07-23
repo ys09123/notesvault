@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/index/images/favicon.ico" />
     <title>NotesVault Home</title>
     <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div id="top"></div>
     <header>
         <div id="header">
             <div id="header-title-box">
-                <p id="header-title">NotesVault</p>
+                <img src="./assets/index/images/Icon.jpg" alt="App Icon" style="height:32px;width:32px;margin-right:10px;vertical-align:middle;" />
+                <p id="header-title" style="display:inline;vertical-align:middle;">NotesVault</p>
             </div>
 
             <!-- Hamburger Menu Button -->
@@ -25,16 +28,18 @@
 
 
             <!-- Navigation Menu -->
-            <div id="header-navigation" class="nav-menu">
+            <div id="header-navigation" class="nav-menu" id="navbar">
                 <a href="./pages/overview.html">Overview</a>
-                <a href="/">Student Account</a>
+                <a href="studentAccount.html">Student Account</a>
                 <a href="about.html">About</a>
-                <a href="jotpad.html">Jotpad</a>
                 <a href="/">Features</a>
             </div>
 
                 <div id="header-signup-box">
+
                     <a href="/pages/signup.html"><p>Sign Up</p></a>
+
+
                     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
                         <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -115,43 +120,34 @@
 
 
         <div class="About-right">
-         <div class="About-right-box">
-            <a href="upload.html" class="footer-right-box" style="text-decoration: none; color: inherit;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v12" />
-                    <polyline points="5 9 12 2 19 9" />
-                    <path d="M5 20h14" />
-                </svg>
-                <p class="About-right-heading upload-btn">Easy Upload</p>
-                <p class="About-right-text">Add your notes quickly and effortlessly</p>
-          </a>
-          </div>
-
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
-                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h5l2 3h11v11H3z" />
-                    <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-                </svg>
-
-
-                <p class="About-right-heading">Sort The Chaos</p>
-                <p class="About-right-text">Neatly arrange all your notes in one place</p>
-            </div>
-            <div class="About-right-box">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
-                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-                    <circle cx="16" cy="8" r="1.5" />
-                </svg>
-
-
-                <p class="About-right-heading">Search By Tags</p>
-                <p class="About-right-text">Find notes using subject tags</p>
-            </div>
-        </div>
+  <div class="feature-cards-container">
+    <div class="feature-card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12" />
+        <polyline points="5 9 12 2 19 9" />
+        <path d="M5 20h14" />
+      </svg>
+      <p class="About-right-heading upload-btn">Easy Upload</p>
+      <p class="About-right-text">Add your notes quickly and effortlessly</p>
     </div>
+    <div class="feature-card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h5l2 3h11v11H3z" />
+        <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
+      </svg>
+      <p class="About-right-heading">Sort The Chaos</p>
+      <p class="About-right-text">Neatly arrange all your notes in one place</p>
+    </div>
+    <div class="feature-card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
+        <circle cx="16" cy="8" r="1.5" />
+      </svg>
+      <p class="About-right-heading">Search By Tags</p>
+      <p class="About-right-text">Find notes using subject tags</p>
+    </div>
+  </div>
+</div>
 
 
     <footer class="modern-footer">
@@ -234,7 +230,16 @@
         </div>
     </footer>
 
-    
+    <a href="#top" class="to_top" id="scroll_top_btn" aria-label="Scroll to top">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ab8335" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</a>
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
     <script src="script.js" defer></script>
 </body>
 
