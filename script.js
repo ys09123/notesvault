@@ -310,6 +310,16 @@ function updateSubjects(branch) {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  var easyUploadCard = document.querySelector('.easy-upload-card');
+  if (easyUploadCard) {
+    easyUploadCard.style.cursor = 'pointer';
+    easyUploadCard.addEventListener('click', function() {
+      window.location.href = '/upload.html';
+    });
+  }
+});
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
