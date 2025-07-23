@@ -15,15 +15,16 @@
 
   <div class="editor-wrapper">
     <div class="editor-container">
-      <div class="note-box" contenteditable="true" id="noteArea" data-placeholder="Start writing your notes here...">
-
+      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
       </div>
+
       <div class="button-wrapper">
   <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
   <button class="delete-btn" onclick="deleteAll()">Delete All</button>
 </div>
 
      </div>
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -38,17 +39,35 @@
       doc.text(content, 10, 20, { maxWidth: 180 });
       doc.save("MyNotes.pdf");
     }
-    const note = document.getElementById("noteArea");
-  note.innerHTML = localStorage.getItem("noteContent") || "";
-  note.addEventListener("input", () => {
-    localStorage.setItem("noteContent", note.innerHTML);
-  });
-  function deleteAll() {
-    if (confirm("Are you sure you want to delete all notes?")) {
-      note.innerHTML = "";
-      localStorage.removeItem("noteContent");
-    }
+    
+const noteArea = document.getElementById("noteArea");
+noteArea.innerHTML = localStorage.getItem("noteContent") || "";
+
+function togglePlaceholder() {
+  if (noteArea.innerText.trim() === "") {
+    noteArea.classList.add("empty");
+  } else {
+    noteArea.classList.remove("empty");
   }
+}
+
+noteArea.addEventListener("input", () => {
+  localStorage.setItem("noteContent", noteArea.innerHTML);
+  togglePlaceholder();
+});
+
+noteArea.addEventListener("blur", togglePlaceholder);
+
+togglePlaceholder();
+
+function deleteAll() {
+  if (confirm("Are you sure you want to delete all notes?")) {
+    noteArea.innerHTML = "";
+    localStorage.removeItem("noteContent");
+    togglePlaceholder();
+  }
+}
+
   </script>
 
 </body>
