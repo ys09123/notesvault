@@ -1,10 +1,224 @@
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
-  body {
-    background-color: #f4f7f2;
-    margin: 0;
-    padding: 0;
-  }
+
+body {
+  background-color: #f4f7f2;
+  margin: 0;
+  padding:0;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(22, 61, 59, 0.1);
+  border: 1px solid rgba(22, 61, 59, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: rgba(22, 61, 59, 0.2);
+  border-color: rgba(22, 61, 59, 0.3);
+  transform: scale(1.05);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  color: #163d3b;
+}
+
+.theme-toggle .sun-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.theme-toggle .moon-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Dark mode theme toggle button styles */
+[data-theme="dark"] .theme-toggle {
+  background: rgba(223, 248, 248, 0.1);
+  border-color: rgba(223, 248, 248, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(223, 248, 248, 0.2);
+  border-color: rgba(223, 248, 248, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon,
+[data-theme="dark"] .theme-toggle .moon-icon {
+  color: #dff8f8;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Integrated code from paste-2.txt (lines 90 to 154) */
+
+/* Example integrated styles (replace with actual content from paste-2.txt) */
+.example-class {
+  color: #333;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.another-example {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+/* Navigation Menu Styles with updated order for theme toggle */
+/* General reset if needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure parent scroll works */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Sticky header */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none !important;
+  border-bottom: none !important;
+  margin: 0;
+}
+
+/* Flex box for left/right header items */
+#header div {
+  display: flex;
+}
+
+/* Ensures text/icons inside header are centered vertically */
+#header div p {
+  display: flex;
+  align-items: center;
+}
+
+/* Left section spacing */
+#header #header-title-box {
+  margin-left: 5vw;
+}
+
+#header-title-box {
+  display: flex;
+  align-items: center;
+}
+
+/* Title style */
+#header #header-title-box #header-title {
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc(12px+1vw);
+}
+
+/* Hamburger lines */
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* Hamburger button */
+.hamburger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Wrapper to group button and sidebar */
+.hamburger-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+}
+
+/* Sidebar - hidden by default */
+.hover-sidebar {
+  position: absolute;
+  top: 0;
+  left: -250px; /* Hidden left */
+  width: 180px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left 0.3s ease;
+  border-radius: 20px;
+  /* border: 2px black; */
+}
+
+.hover-sidebar a{
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+}
+.hover-sidebar a:hover{
+  color: green;
+  text-decoration: underline;
+}
+
+/* On hover, slide the sidebar in */
+.hamburger-wrapper:hover .hover-sidebar {
+  left: 50px; /* Adjust to position beside hamburger */
+}
+
+/* Navigation Menu Styles */
+#header #header-navigation {
+  width: 40vw;
+  justify-content: space-between;
+}
+
 
   .theme-toggle {
     display: flex;
@@ -175,9 +389,35 @@
     transition: all 0.3s ease;
   }
 
+
   .hamburger-menu.active .hamburger-line:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
+
+.search-parameters-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+
+
 
   .hamburger-menu.active .hamburger-line:nth-child(2) {
     opacity: 0;
@@ -247,11 +487,25 @@
     position: absolute;
   }
 
+
   .nav-menu a span {
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     /* background-color: #F4F7F2; */
   }
+
+.footer-right .footer-right-box {
+  text-decoration: none;
+  color: black;
+  display: block;
+  width: 16vw;
+  margin: 0px 2vw;
+  cursor: pointer;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 
   .nav-menu a:hover span {
     transform: translate3d(-200%, 0, 0);
@@ -265,6 +519,7 @@
   .nav-menu a:hover::after {
     transform: translate3d(0, 0, 0);
   }
+
 
   /* ------------------------------------------------ */
   #header #header-navigation p:hover {
@@ -304,6 +559,7 @@
     justify-content: center;
     align-items: center;
   }
+
 
   #main .welcome {
     font-weight: 600;
@@ -428,8 +684,28 @@
     margin: 20px 20px;
   }
 
+
   .search-form-input-container {
     display: flex;
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+
+}
+
+
+/* Mobile styles (600px and down) */
+@media screen and (max-width: 600px) {
+  /* Mobile Header Layout - Logo | Signup | Hamburger */
+  #header {
+    justify-content: flex-start;
+
     align-items: center;
   }
 
