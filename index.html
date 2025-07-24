@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>NotesVault Home</title>
     <script
+     src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
       src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
       crossorigin="anonymous"
     ></script>
@@ -47,6 +48,27 @@
         </div>
       </div>
     </header>
+   <div class="Search-box">
+  <div class="main-right-search " >
+    <form id="search-form" class="main-right-search-form" method="get" action="search.html">
+      <div class="flex justify-evenly w-full items-center gap-20 ">
+       
+      <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search" />
+        <svg class=" search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+
+      </div>
+     
+      <div id="search-parameters-branch" class="search-parameters-div"></div>
+      <div id="search-parameters-semester" class="search-parameters-div"></div>
+      <div id="search-parameters-subject" class="search-parameters-div"></div>
+      <input type="submit" style="display: none" />
+    </form>
+  </div>
+</div>
+
 
     <main id="main">
       <div class="main-left">
@@ -63,6 +85,7 @@
           <p class="links-text try-box">Upload Notes</p>
         </div>
       </div>
+      
 
       <div class="main-right">
         <div class="main-right-box">
@@ -73,19 +96,7 @@
             </div>
           </div>
 
-          <div class="main-right-search">
-            <form id="search-form" class="main-right-search-form" method="get" action="search.html">
-              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-              <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search" />
-              <div id="search-parameters-branch" class="search-parameters-div"></div>
-              <div id="search-parameters-semester" class="search-parameters-div"></div>
-              <div id="search-parameters-subject" class="search-parameters-div"></div>
-              <input type="submit" style="display: none" />
-            </form>
-          </div>
+          
         </div>
       </div>
 
