@@ -790,13 +790,26 @@
     background-color: rgba(165, 201, 160, 0.8156862745);
   }
 
-  .search-parameters-div .search-parameters-option {
-    border: none;
-    border-radius: 30px;
-    padding: 10px;
-    background-color: rgba(165, 201, 160, 0.8156862745);
-    color: #2E2E2E;
-  }
+.search-parameters-div .search-parameters-option {
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: rgba(165, 201, 160, 0.8156862745);
+  color: #2E2E2E;
+}
+
+.search-parameters-div .search-parameters-select option {
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: #a5c9a0d0;
+  color: #2E2E2E;
+}
+
+[data-theme="dark"] .search-parameters-select option {
+  background-color: rgba(60, 80, 60, 0.9) !important;
+  color: #e0e0e0 !important;
+}
 
 
   .About {
