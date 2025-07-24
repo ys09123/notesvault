@@ -1,4 +1,4 @@
-  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
 
 
@@ -434,11 +434,12 @@
     overflow: hidden;
     position: relative;
     display: inline-block;
-    color: #000000;
+    color: #000000; /* this is fine for light mode */
     font-weight: 700;
     font-style: normal;
     font-family: "Poppins", sans-serif;
   }
+  
 
   .nav-menu a::before,
   .nav-menu a::after {
@@ -466,6 +467,15 @@
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     color: #017c01;
     position: absolute;
+  }
+  /* Light Mode */
+  .nav-menu a {
+     color: #000000;
+  }
+
+  /* Dark Mode */
+  [data-theme="dark"] .nav-menu a {
+    color: #ffffff;
   }
 
 
@@ -500,6 +510,7 @@
   .nav-menu a:hover::after {
     transform: translate3d(0, 0, 0);
   }
+  
 
 
   /* ------------------------------------------------ */
@@ -2228,4 +2239,4 @@ main{
     }
   }
 
-}
+
