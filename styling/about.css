@@ -1,0 +1,68 @@
+
+.body{
+    background-color: black;
+    display: flex;
+}
+#header{
+    background-color: black;
+    color: white;
+}
+#header a{
+    color: white;
+}
+.heading1{
+    color: #d1fae5;
+    margin-bottom: 2px;
+}
+.content{
+    color: #eda950;
+}
+.main_content{
+    padding-top: 20px;
+    background-color: black;
+    color: white;
+}
+
+.notesvault-section{
+    background-color: black;
+}
+
+.sectionmission-vision{
+    background-color: black;
+    color: #dff8f8;
+    margin: 20px;
+    border: 2px #eda950 solid;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+.sectionhow-it-helps{
+    background-color: black;
+    color: #dff8f8;
+    margin: 20px;
+    border: 2px #dff8f8 solid;
+    border-radius: 20px;
+    padding: 30px;
+}
+.green_tag{
+    background-color: #064e3b;
+    color:#d1fae5 ;
+    border-left: 4px solid #047857;
+    padding: 1rem;
+}
+.tech-stack{
+    background-color: black;
+    color: white;
+    margin: 20px;
+    border: 2px #eda950 solid;
+    border-radius: 20px;
+    padding: 30px;
+}
+.tech-stack h2{
+    color: #eda950;
+}
+
+.section-github{
+    padding: 40px;
+}
